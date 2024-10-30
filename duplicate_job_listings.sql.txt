@@ -1,0 +1,12 @@
+-- https://datalemur.com/questions/duplicate-job-listings
+-- duplicate job listings = company_id + title + description all same 
+-- Linkedin SQL Interview Question
+WITH CTE AS 
+(
+SELECT company_id , title , description , count(1) as duplicate_job_listings
+FROM job_listings
+GROUP BY company_id , title , description
+HAVING COUNT(1) > 1
+)
+
+SELECT COUNT(company_id) AS duplicate_companies from CTE 
