@@ -1,0 +1,9 @@
+-- https://leetcode.com/problems/triangle-judgement/?envType=study-plan-v2&envId=top-sql-50
+-- 610. Triangle Judgement
+SELECT  * ,
+CASE 
+WHEN (x < (y+z)) AND  y < (x+z) AND  z < (x+y) THEN 'Yes'
+ELSE 'No'
+END as triangle
+FROM Triangle 
+
